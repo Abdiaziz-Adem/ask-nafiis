@@ -1,0 +1,103 @@
+{
+  "name": "AI Chatbot - Ollama and Memory",
+  "nodes": [
+    {
+      "name": "When chat message received",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        -176,
+        0
+      ],
+      "parameters": {
+        "public": false,
+        "mode": "hostedChat",
+        "options": {}
+      },
+      "id": "95cdf021-3a8c-42b3-a74b-3088fec1e001",
+      "webhookId": "29f74e69-7a74-4abe-83e1-33b1a106ccc3"
+    },
+    {
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        224,
+        0
+      ],
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a helpful AI assistant. Answer clearly and concisely in the user’s language. Use the available conversation history. Ask a short clarifying question when needed. If you do not know an answer, say so instead of inventing facts. You have no tools to access live databases, browse websites, send messages, make bookings, process payments or perform transactions. Do not claim to have completed actions you cannot perform. Never request passwords, API keys, wallet private keys or payment details."
+        }
+      },
+      "id": "be69b3ab-7fb0-4fb0-a6ba-87fcd72e7703"
+    },
+    {
+      "name": "Ollama Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        96,
+        208
+      ],
+      "parameters": {
+        "model": "llama3.2:3b",
+        "options": {}
+      },
+      "id": "40516e51-d813-413c-8112-89fec59f1cb1"
+    },
+    {
+      "name": "Simple Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        240,
+        208
+      ],
+      "parameters": {
+        "contextWindowLength": 1
+      },
+      "id": "4ebc541c-c392-4bb8-b110-8949f5065c41"
+    }
+  ],
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "active": false,
+  "pinData": {}
+}
