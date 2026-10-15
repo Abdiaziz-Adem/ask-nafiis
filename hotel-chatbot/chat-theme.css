@@ -1,0 +1,48 @@
+/* Merge into your Tailwind v4 stylesheet after its import. */
+:root {
+  color-scheme: light;
+  --background: #f7f3ec; /* coral sand */
+  --surface: #fffdf9; /* warm white: cards, inputs */
+  --foreground: #14202b; /* deep ink */
+  --muted: #5a6470; /* secondary text */
+  --border: #e4dacb; /* hairlines, card edges */
+  --border-strong: #948876; /* input and control outlines (3:1 on surface) */
+  --brand: #0e4a68; /* Indian Ocean blue */
+  --brand-foreground: #ffffff;
+  --accent: #b03f28; /* coral stone: eyebrows, lozenge */
+  --sand-dark: #ece4d6; /* photo placeholders */
+
+  --success: #1c6b45;
+  --success-soft: #e3f1e8;
+  --warning: #8a4a0b;
+  --warning-soft: #fbebd3;
+  --danger: #b3261e;
+  --danger-soft: #fbe5e2;
+  --info: #1f57a3;
+  --info-soft: #e3ecf8;
+  --neutral: #48515c;
+  --neutral-soft: #ece7de;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-accent: var(--accent);
+  --color-sand-dark: var(--sand-dark);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --color-neutral: var(--neutral);
+  --color-neutral-soft: var(--neutral-soft);
+}

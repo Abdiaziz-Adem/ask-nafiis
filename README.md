@@ -2,7 +2,7 @@
 
 A standalone AI chatbot automation built with **n8n**, **Ollama**, and **Simple Memory**. Import the workflow, connect your own Ollama instance, and start chatting inside n8n.
 
-This is a reusable version of an existing customer-support automation. It contains the automation only. It does not include the hotel website, its database, booking system, or blockchain integration.
+This is a reusable version of an existing customer-support automation. The workflow is independent of the hotel website. The optional [hotel chatbot code](hotel-chatbot/README.md) is also included as a Next.js integration kit: chat panel, API bridge, and fast public-data answers. The full hotel website, booking/payment backend and blockchain integration are not included.
 
 ## How it works
 
@@ -52,7 +52,7 @@ To host a chat later, configure the Chat Trigger's authentication, enable its pu
 
 For internet use, set up HTTPS, authentication and request limits. Choose allowed origins for your frontend. Treat n8n execution history and memory as potentially containing chat messages; configure retention and access for your use case. Simple Memory is not a durable shared conversation store for multiple workers.
 
-Publishing this repository on GitHub stores the workflow and instructions. It does **not** run n8n, run Ollama, or deploy a chatbot website. AI speed depends on your model and hardware. The fast hotel-database answers from the website project are not part of this automation.
+Publishing this repository on GitHub stores the workflow and instructions. It does **not** run n8n, run Ollama, or deploy a chatbot website. AI speed depends on your model and hardware. Fast hotel-database answers live in the separate [hotel-chatbot integration kit](hotel-chatbot/README.md), not in the n8n workflow.
 
 ## What was removed from the export
 
