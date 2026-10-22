@@ -1,4 +1,4 @@
-# Hotel chatbot code
+# Ask Nafiis — hotel integration kit
 
 The customer-facing **Ask Nafiis** chat feature extracted from the hotel project. This is an **integration kit for an existing Next.js App Router application**, not a complete hotel website or independently runnable app.
 
@@ -49,7 +49,7 @@ Import [`../workflows/ai-chatbot.json`](../workflows/ai-chatbot.json), connect y
 
 Configure its Chat Trigger for **Embedded Chat**, enable its chat endpoint when ready, set authentication, then publish/activate it. Copy the production **Chat URL** into `HOTEL_CHAT_WEBHOOK_URL`; use a URL reachable from your Next.js server. Match `HOTEL_CHAT_BASIC_AUTH` to the trigger's Basic Auth credential if used. A hosted Next.js server cannot reach n8n through your laptop's `localhost`.
 
-The API sends `{ action: "sendMessage", sessionId, chatInput }` and expects an `output` or `text` string in the response. Routine database answers do not require n8n. The generic workflow must be given approved hotel facts for hotel-specific AI replies.
+The API sends `{ action: "sendMessage", sessionId, chatInput }` and expects an `output` or `text` string in the response. Routine database answers do not require n8n. The Ask Nafiis workflow must be given approved hotel facts for hotel-specific AI replies.
 
 ## Verification
 
