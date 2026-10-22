@@ -1,8 +1,20 @@
-# n8n AI Chatbot
+# Ask Nafiis
 
-A standalone AI chatbot automation built with **n8n**, **Ollama**, and **Simple Memory**. Import the workflow, connect your own Ollama instance, and start chatting inside n8n.
+**An AI hotel assistant for the Nafiis hotel management system.**
 
-This is a reusable version of an existing customer-support automation. The workflow is independent of the hotel website. The optional [hotel chatbot code](hotel-chatbot/README.md) is also included as a Next.js integration kit: chat panel, API bridge, and fast public-data answers. The full hotel website, booking/payment backend and blockchain integration are not included.
+Ask Nafiis brings a guest-facing chat interface together with **Next.js**, **n8n**, and local **Ollama**. The integration kit can answer supported room, menu, and contact questions from your configured public hotel data, while the n8n workflow supplies model-based conversation.
+
+This repository is a portfolio and integration sample extracted from our hotel project. Start with the [hotel integration guide](hotel-chatbot/README.md) for the **Ask Nafiis** chat panel, API bridge, and fast public-data answers. You can also import the workflow on its own for local chat. The complete hotel management system and its booking/payment backend are not included.
+
+[Hotel integration guide](hotel-chatbot/README.md) · [Importable workflow](workflows/ai-chatbot.json) · [Developer portfolio](https://github.com/Abdiaziz-Adem)
+
+## Scope at a glance
+
+| Layer | What it provides |
+| --- | --- |
+| Next.js integration kit | Ask Nafiis widget, API bridge, and supported public hotel-data answers after configuration. |
+| n8n + Ollama workflow | Local AI conversation with short session memory and the Ask Nafiis identity. |
+| Deployment status | Source samples only. Publishing this repository does not run the chatbot or change the hotel website. |
 
 ## How it works
 
@@ -13,7 +25,7 @@ flowchart LR
     Memory[Simple Memory] -. Conversation history .-> Agent
 ```
 
-The AI Agent uses a general assistant prompt and a local `llama3.2:3b` model. Simple Memory retains a short conversation window for each chat session. There are no external action tools or live database queries.
+The AI Agent identifies itself as **Ask Nafiis**, the hotel's AI assistant, and uses a local `llama3.2:3b` model. Supply approved hotel facts before using AI replies with guests. Simple Memory retains a short conversation window for each chat session. There are no external action tools or live database queries.
 
 ## Set up
 
@@ -58,14 +70,14 @@ Publishing this repository on GitHub stores the workflow and instructions. It do
 
 - Saved credential references and deployment-specific workflow metadata.
 - Pinned/sample execution data and original webhook identifiers.
-- Hotel-specific instructions and contact details, replaced with a general assistant prompt.
+- Private hotel facts and contact details. The public prompt identifies Ask Nafiis but includes no room prices, availability, or customer data.
 - An unused, disconnected legacy Webhook node.
 
 No credential export, API key, private environment file, conversation history, or customer records are included. Importing the workflow requires creating your own Ollama connection.
 
 ## Validation
 
-The exported JSON was checked for valid node connections and removal of source credential references and hotel contact details. The standalone workflow was also imported into a fresh temporary n8n instance. Connecting an Ollama credential and running inference remain local setup steps for each installation.
+The exported JSON was checked for valid node connections and removal of source credential references and hotel contact details. The original standalone workflow was also imported into a fresh temporary n8n instance. The Ask Nafiis branding update preserves its node connections, model, inactive state, and credential-free configuration; the updated export was checked as JSON. Connecting an Ollama credential and running inference remain local setup steps for each installation.
 
 ## Official documentation
 
